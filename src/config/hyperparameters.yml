@@ -1,0 +1,34 @@
+example:
+  # This is an example configuration file for a reinforcement learning agent
+  
+  # Environment settings
+  environment:
+    env_id: 'CartPole-v1'   # Name of the environment
+    # env_config:           # Environment-specific parameters
+  
+  # Training settings
+  training:
+    max_steps: 100000       # Maximum number of steps per episode
+    # max_step_penalty:     # Additional penalty if agent reaches the maximum steps
+  
+  # Hyperparameters for the agent
+  agent:
+    # General settings
+    gamma: 0.99             # Discount factor for future rewards
+    epsilon: 0.1            # Exploration rate for epsilon-greedy policy
+    epsilon_decay: 0.995    # Decay rate for epsilon
+    epsilon_min: 0.01       # Minimum epsilon value
+    batch_size: 64          # Number of samples per batch
+    target_update_freq: 10  # Frequency of updating the target network
+
+    # Memory settings
+    capacity: 100000        # Maximum memory size
+
+    # Network settings
+    hidden_dim: 64          # Dimension of the hidden layer
+
+    # Optimizer settings
+    learning_rate: 0.0001   # Learning rate for the optimizer
+    weight_decay: 0.0005    # Weight decay for regularization
+    optimizer: Adam         # Optimizer type (e.g., Adam, RMSprop, etc.)
+    

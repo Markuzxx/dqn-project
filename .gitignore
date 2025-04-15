@@ -1,0 +1,15 @@
+# Python virtual environment
+
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Temporary or large files
+
+*.pt
+*.h5
+*.ckpt
+*.log
+*.tmp
