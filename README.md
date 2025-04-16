@@ -109,8 +109,9 @@ python evaluate sessions/hyperparameters_set_0 --model best --render
 - [x] Modular project structure
 - [x] Basic neural network and replay buffer
 - [x] DQN algorithm implementation (testing phase)
+- [x] Logging  
 - [ ] Evaluation integration and model saving
-- [ ] Optimization and logging
+- [ ] Optimization
 
 ## Future Improvements
 
