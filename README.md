@@ -70,7 +70,7 @@ pip install -r requirements.txt
 
 To start a new training session with a specific hyperparameter set:
 
-```powershell
+```bash
 python train --new hyperparameters_set
 ```
 
@@ -78,7 +78,7 @@ This will create a new folder under `sessions/` named like `hyperparameters_set_
 
 To resume an existing session, provide the path to the session folder:
 
-```powershell
+```bash
 python train --resume sessions/hyperparameters_set_0
 ```
 
@@ -88,7 +88,7 @@ python train --resume sessions/hyperparameters_set_0
 
 To evaluate a trained model:
 
-```powershell
+```bash
 python evaluate sessions/hyperparameters_set_0
 ```
 
@@ -99,7 +99,7 @@ You can specify which model to use:
 
 You can also render the environment during evaluation:
 
-```powershell
+```bash
 python evaluate sessions/hyperparameters_set_0 --model best --render
 ```
 
