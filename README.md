@@ -33,7 +33,7 @@ git clone https://github.com/Markuzxx/dqn-project.git
 cd dqn-project
 ```
 
-### Create a virtual environment
+### Create a virtual environment (recommended)
 
 It is highly recommended to use a virtual environment to isolate the project dependencies.
 
