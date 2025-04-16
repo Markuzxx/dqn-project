@@ -1,40 +1,108 @@
 
 # dqn-project
 
-Implementazione di un agente Deep Q-Learning per il controllo decisionale in un ambiente simulato. L'agente utilizza due reti neurali (policy e target) per approssimare la funzione Q e apprendere politiche ottimali basate su segnali di ricompensa. L'esplorazione è gestita per bilanciare la raccolta di nuove esperienze e lo sfruttamento delle conoscenze già acquisite. Il progetto fornisce una base solida, pronta per future estensioni con tecniche avanzate.
+A Deep Q-Learning (DQN) agent implementation for decision-making in a simulated environment. The agent leverages two neural networks (policy and target) to approximate the Q-function and learn optimal policies based on reward signals. Exploration is managed to balance new experience acquisition and exploitation of known behaviors. This project serves as a solid foundation, ready for future upgrades with more advanced reinforcement learning techniques.
 
-**Nota:** *questa è una bozza iniziale della relazione relativa al mio capolavoro. Il progetto è attivamente in sviluppo e disponibile al seguente link GitHub: `https://github.com/Markuzxx/dqn-project` La versione finale sarà caricata entro i tempi previsti.*
+## Motivation
 
-## Motivazione
+This project was developed to gain hands-on experience with the fundamental mechanisms of reinforcement learning. It combines programming, mathematics, and artificial intelligence concepts to create an adaptive agent capable of improving its behavior through interaction with an environment.
 
-Ho scelto di sviluppare un agente basato sul Deep Q-Learning per approfondire concretamente i meccanismi fondamentali dell’intelligenza artificiale, in particolare l’apprendimento per rinforzo. Questo progetto mi permette di combinare le mie conoscenze nella programmazione e nella matematica con l'interesse per i sistemi adattivi e l'ottimizzazione del comportamento tramite esperienze.
+## Project Structure
 
-## Struttura del progetto
+- `config/`: contains configuration files (e.g., `hyperparameters.yml`)
+- `sessions/`: saved training sessions and models
+- `agent.py`: DQN agent implementation
+- `environment.py`: simulated environment (customizable)
+- `evaluate.py`: agent evaluation script
+- `models.py`: neural network architecture
+- `replay_buffer.py`: experience replay memory
+- `train.py`: training script
+- `utils.py`: helper functions, global constants, and small classes
 
-- `config/`: contiene i file di configurazione (es. `hyperparameters.yml`)
-- `sessions/`: sessioni salvate
-- `agent.py`: implementazione dell'agente DQN
-- `environment.py`: ambiente simulato (eventualmente personalizzato)
-- `evaluate.py`: avvia la valutazione dell'agente
-- `models.py`: definizione della rete neurale
-- `replay_buffer.py`: memoria per l’esperienza dell’agente
-- `train.py`: avvia l'addestramento dell'agente
-- `utils.py`: costanti, classi e funzioni di supporto
+## Setup Instructions
 
-## Stato attuale
+1. **Clone the repository**
 
-- [x] Ambiente virtuale configurato  
-- [x] Struttura modulare pronta  
-- [x] Rete neurale base e replay buffer funzionanti  
-- [x] Algoritmo DQN in fase di test  
-- [ ] Integrazione valutazione e salvataggio modelli  
-- [ ] Ottimizzazione e logging
+    ```powershell
+    git clone https://github.com/Markuzxx/dqn-project.git
+    cd dqn-project
+    ```
 
-## Prospettive future
+2. **Create and activate a virtual environment**
 
-Il progetto è pensato per essere esteso con:
+    On Windows (using cmd)
 
-- Double DQN  
-- Dueling DQN  
-- Prioritized Experience Replay (PER)  
-- Ambienti personalizzati più complessi
+    ```cmd
+    python -m venv venv
+    venv\Scripts\activate.bat
+    ```
+
+    On Windows (using PowerShell)
+
+    ```powershell
+    python -m venv venv
+    .\venv\Scripts\Activate.ps1
+    ```
+
+3. **Install dependencies**
+
+    ```powershell
+    pip install -r requirements.txt
+    ```
+
+## How to Use
+
+### Training
+
+To start a new training session with a specific hyperparameter set:
+
+```powershell
+python train --new hyperparameters_set
+```
+
+This will create a new folder under `sessions/` named like `hyperparameters_set_0`, `hyperparameters_set_1`, etc.
+
+To resume an existing session, provide the path to the session folder:
+
+```powershell
+python train --resume sessions/hyperparameters_set_0
+```
+
+**Note:** *`--new` and `--resume` are mutually exclusive and one of them is required.*
+
+### Evaluation
+
+To evaluate a trained model:
+
+```powershell
+python evaluate sessions/hyperparameters_set_0
+```
+
+You can specify which model to use:
+
+- `--model best` (loads the best-performing model)
+- `--model last` (loads the most recent checkpoint — default if omitted)
+
+You can also render the environment during evaluation:
+
+```powershell
+python evaluate sessions/hyperparameters_set_0 --model best --render
+```
+
+## Current Progress
+
+- [x] Virtual environment configured
+- [x] Modular project structure
+- [x] Basic neural network and replay buffer
+- [x] DQN algorithm implementation (testing phase)
+- [ ] Evaluation integration and model saving
+- [ ] Optimization and logging
+
+## Future Improvements
+
+Planned features and extensions include:
+
+- Double DQN
+- Dueling DQN
+- Prioritized Experience Replay (PER)
+- More complex, custom environments
