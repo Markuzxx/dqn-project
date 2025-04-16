@@ -17,6 +17,7 @@ def evaluate(render: bool,
     '''
 
     if not os.path.exists(session_path):
+        
         raise FileNotFoundError(f"Session path '{session_path}' does not exist.")
 
     hyperparameters = load_yaml(os.path.join(session_path, 'data', 'hyperparameters.yml'))
@@ -32,21 +33,27 @@ def evaluate(render: bool,
     max_step_penalty = hyperparameters['training'].get('max_step_penalty', 0)
 
     logger = Logger(
+
         name='Logger',
         level='INFO',
         datefmt=DATE_FORMAT,
         log_file_path=os.path.join(session_path, 'logs', 'evaluation_log.log')
+
     )
 
     env = Environment(
+
         env_id=hyperparameters['environment']['env_id'],
         render=render,
         env_params=hyperparameters['environment'].get('env_config', {})
+
     )
 
     agent = Agent(
+
         env=env,
         hyperparameters=hyperparameters['agent']
+
     )
 
     agent.load_checkpoint(selected_model_path)
@@ -57,7 +64,9 @@ def evaluate(render: bool,
     logger.info('Evaluation starting...')
     
     try:
+
         for episode in range(10):
+
             start_time = time.time()
             # Reset environment for the new episode
             state, _ = env.reset()
@@ -69,6 +78,7 @@ def evaluate(render: bool,
             episode_reward = 0.0
 
             while not terminated and step_count < max_steps:
+
                 action = agent.act(state)
 
                 # Step the environment with the selected action
@@ -87,19 +97,26 @@ def evaluate(render: bool,
                 state = new_state
 
             if last_reward is not None and last_reward != 0:
+
                 logger.info(
+
                     f'Episode {episode}: Reward {episode_reward:.2f} '
                     f'({(episode_reward - last_reward) / last_reward * 100:+.1f}%).'
-                    )
+
+                )
+                
             else:
+
                 logger.info(f"Episode {episode}: Reward {episode_reward:.2f}.")
 
             last_reward = episode_reward
 
     except KeyboardInterrupt:
+
         logger.info('Evaluation interrupted by the user.')
 
     else:
+
         logger.info('Evaluation terminated.')
     
     logger.blank()
@@ -115,7 +132,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     evaluate(
+
         render=args.render,
         session_path=args.session_path,
         selected_model=args.model
+
     )
