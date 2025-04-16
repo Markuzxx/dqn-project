@@ -19,36 +19,50 @@ This project was developed to gain hands-on experience with the fundamental mech
 - `train.py`: training script
 - `utils.py`: helper functions, global constants, and small classes
 
-## Setup Instructions
+## Requirements
 
-1. **Clone the repository**
+- Python 3.10.11 (recommended)
+- pip
 
-    ```powershell
-    git clone https://github.com/Markuzxx/dqn-project.git
-    cd dqn-project
-    ```
+## Installation
 
-2. **Create and activate a virtual environment**
+### Clone the repository
 
-    On Windows (using cmd)
+```bash
+git clone https://github.com/Markuzxx/dqn-project.git
+cd dqn-project
+```
+
+### Create a virtual environment
+
+It is highly recommended to use a virtual environment to isolate the project dependencies.
+
+- **Windows - cmd**
 
     ```cmd
-    python -m venv venv
+    py -3.10.11 -m venv venv
     venv\Scripts\activate.bat
     ```
 
-    On Windows (using PowerShell)
+- **Windows - PowerShell**
 
     ```powershell
-    python -m venv venv
+    py -3.10.11 -m venv venv
     .\venv\Scripts\Activate.ps1
     ```
 
-3. **Install dependencies**
+- **Linux/macOS**
 
-    ```powershell
-    pip install -r requirements.txt
+    ```bash
+    py -3.10.11 -m venv venv
+    source venv/bin/activate
     ```
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
 
 ## How to Use
 
