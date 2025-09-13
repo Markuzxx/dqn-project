@@ -54,7 +54,7 @@ It is highly recommended to use a virtual environment to isolate the project dep
 - **Linux/macOS**
 
     ```bash
-    py -3.10.11 -m venv venv
+    python3 -m venv venv
     source venv/bin/activate
     ```
 
@@ -71,7 +71,8 @@ pip install -r requirements.txt
 To start a new training session with a specific hyperparameter set:
 
 ```bash
-python train --new hyperparameters_set
+cd src
+python3 train.py --new hyperparameters_set
 ```
 
 This will create a new folder under `sessions/` named like `hyperparameters_set_0`, `hyperparameters_set_1`, etc.
@@ -79,6 +80,7 @@ This will create a new folder under `sessions/` named like `hyperparameters_set_
 To resume an existing session, provide the path to the session folder:
 
 ```bash
+cd src
 python train --resume sessions/hyperparameters_set_0
 ```
 
@@ -89,6 +91,7 @@ python train --resume sessions/hyperparameters_set_0
 To evaluate a trained model:
 
 ```bash
+cd src
 python evaluate sessions/hyperparameters_set_0
 ```
 
@@ -100,6 +103,7 @@ You can specify which model to use:
 You can also render the environment during evaluation:
 
 ```bash
+cd src
 python evaluate sessions/hyperparameters_set_0 --model best --render
 ```
 
