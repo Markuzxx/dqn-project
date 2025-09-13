@@ -6,8 +6,10 @@ import os
 import csv
 
 
-# Use GPU (CUDA cores) if available, otherwise fallback to CPU
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
+# Use GPU (CUDA cores) or MPS if available, otherwise fallback to CPU
+if      torch.cuda.is_available():          device = 'cuda'
+elif    torch.backends.mps.is_available():  device = 'mps'
+else:                                       device = 'cpu'
 
 DATE_FORMAT     = '%Y-%m-%d %H:%M:%S'
 CONFIG_DIR      = 'config'

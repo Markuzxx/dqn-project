@@ -54,15 +54,29 @@ It is highly recommended to use a virtual environment to isolate the project dep
 - **Linux/macOS**
 
     ```bash
-    py -3.10.11 -m venv venv
+    python3.10 -m venv venv
     source venv/bin/activate
     ```
 
 ### Install dependencies
 
-```bash
-pip install -r requirements.txt
-```
+1. **PyTorch installation**
+
+    Navigate to `pytorch.org` and scroll down untill you find a menu.
+    Select:
+
+    - Stable
+    - Your OS
+    - Python
+    - Your compute platform (if you are on MacOS you should select default)
+
+    Copy the command line generated and execute it.
+
+2. **Install other dependecies**
+
+    ```bash
+    pip3 install -r requirements.txt
+    ```
 
 ## How to Use
 
@@ -71,7 +85,7 @@ pip install -r requirements.txt
 To start a new training session with a specific hyperparameter set:
 
 ```bash
-python train --new hyperparameters_set
+python3 train.py --new hyperparameters_set
 ```
 
 This will create a new folder under `sessions/` named like `hyperparameters_set_0`, `hyperparameters_set_1`, etc.
@@ -79,7 +93,7 @@ This will create a new folder under `sessions/` named like `hyperparameters_set_
 To resume an existing session, provide the path to the session folder:
 
 ```bash
-python train --resume sessions/hyperparameters_set_0
+python3 train.py --resume sessions/hyperparameters_set_0
 ```
 
 **Note:** *`--new` and `--resume` are mutually exclusive and one of them is required.*
@@ -89,7 +103,7 @@ python train --resume sessions/hyperparameters_set_0
 To evaluate a trained model:
 
 ```bash
-python evaluate sessions/hyperparameters_set_0
+python3 evaluate.py sessions/hyperparameters_set_0
 ```
 
 You can specify which model to use:
@@ -100,7 +114,7 @@ You can specify which model to use:
 You can also render the environment during evaluation:
 
 ```bash
-python evaluate sessions/hyperparameters_set_0 --model best --render
+python3 evaluate.py sessions/hyperparameters_set_0 --model best --render
 ```
 
 ## Current Progress
@@ -110,8 +124,8 @@ python evaluate sessions/hyperparameters_set_0 --model best --render
 - [x] Basic neural network and replay buffer
 - [x] DQN algorithm implementation (testing phase)
 - [x] Logging  
-- [ ] Evaluation integration and model saving
-- [ ] Optimization
+- [x] Evaluation integration and model saving
+- [x] Optimization
 
 ## Future Improvements
 
