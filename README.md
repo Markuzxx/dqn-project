@@ -82,6 +82,12 @@ It is highly recommended to use a virtual environment to isolate the project dep
 
 ### Training
 
+Navigate to `src/` folder:
+
+```bash
+cd src
+```
+
 To start a new training session with a specific hyperparameter set:
 
 ```bash
