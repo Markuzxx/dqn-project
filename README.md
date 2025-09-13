@@ -65,10 +65,10 @@ It is highly recommended to use a virtual environment to isolate the project dep
     Navigate to `pytorch.org` and scroll down untill you find a menu.
     Select:
 
-    - Stable
+    - `Stable`
     - Your OS
-    - Python
-    - Your compute platform (if you are on MacOS you should select default)
+    - `Python`
+    - Your compute platform (if you are on macOS you should select `default`)
 
     Copy the command line generated and execute it.
 
